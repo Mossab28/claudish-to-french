@@ -1,0 +1,16 @@
+{
+  "name": "mossab28-plugins",
+  "owner": {
+    "name": "Mossab28",
+    "url": "https://github.com/Mossab28"
+  },
+  "description": "Plugins Claude Code de Mossab28.",
+  "plugins": [
+    {
+      "name": "claudish-to-french",
+      "source": "./",
+      "description": "Affiche une réécriture en français clair de chaque message assistant Claude Code, via ollama. Display-only.",
+      "category": "productivity"
+    }
+  ]
+}

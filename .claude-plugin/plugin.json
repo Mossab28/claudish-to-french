@@ -1,0 +1,13 @@
+{
+  "name": "claudish-to-french",
+  "description": "Affiche une réécriture en français clair de chaque message assistant Claude Code, via un LLM local (ollama). Display-only: le raisonnement et le transcript gardent le texte original.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Mossab28",
+    "url": "https://github.com/Mossab28"
+  },
+  "homepage": "https://github.com/Mossab28/claudish-to-french#readme",
+  "repository": "https://github.com/Mossab28/claudish-to-french",
+  "license": "MIT",
+  "keywords": ["ollama", "local-llm", "hooks", "francais", "plain-language", "claude-code", "claudish"]
+}
