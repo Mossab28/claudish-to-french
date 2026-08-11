@@ -1,39 +1,61 @@
-# Exemples Claudish / Français
+# Exemples: article / post Claudish → Français
 
-## 1. Réponse chat (parler)
+## Exemple canonique (post)
 
-**Demande:** « Y a-t-il une vraie auth ? »
+**Brief:** Expliquer qu'on a réduit les réunions de statut et que l'outil aide sur les rapports.
 
-**Français (oui):**
-> Pas encore. Un middleware te connecte automatiquement avec un utilisateur mock. Pour une vraie sécurité, il faudra un `protectedProcedure` et arrêter d'écrire le mot de passe en dur.
+### Claudish
 
-**Claudish collé dans le chat (non):**
-> Auth - deliberate gap: `middleware/autoLogin.ts` on every request; `MOCK_USER_EMAIL` → cookie HttpOnly 7d; `user.create` writes literal `'hashed_password_here'`; all routes stay `publicProcedure` in `server/trpc.ts`.
+> Voici la chose: dans le paysage fast-paced d'aujourd'hui, les équipes doivent lean into un nouveau mindset. Ce n'est pas seulement un outil; c'est une façon transformative de travailler. Le résultat? Une productivité qui débloque tout le potentiel du deep work. De plus, cela leverage des insights clés pour streamliner vos workflows. Au final, le futur du travail est déjà là.
 
-## 2. Pendant une tâche (faire)
+### Français
 
-**Demande:** « Corrige le chemin du design system. »
+> La plupart des équipes perdent encore une après-midi par semaine en réunions de statut. On est passé de cinq réunions à deux: la roadmap n'a pas bougé. L'outil rédige le premier jet du rapport, ce qui fait gagner environ trois heures. Si vous livrez chaque jour, gardez le statut dans un doc et gardez la réunion pour décider.
 
-**Travail Claudish (outils / notes):**
-- Lu `components.json`: aliases pointent vers `/ui/`
-- Design system réel: `/obra/`
-- Aussi faux dans `CLAUDE.md` L12
-- Fix: retarget aliases + sync doc agent
+**Écart:** mêmes idées (réunions, outil, temps gagné); le Claudish annonce et enjolive, le Français montre.
 
-**Message final Français:**
-> Les aliases pointaient vers `/ui/` alors que le design system est dans `/obra/`. J'ai corrigé `components.json` et la mention dans `CLAUDE.md`.
+---
 
-## 3. Même vérité, deux docs
+## Newsletter courte
 
-**Claudish:**
-> Running & deploying: five modes (`docker-compose.local.yaml`, `.dev.yaml`, `.prod.yaml`, `.ecs.yaml`, bare npm). Schema-relative `DATABASE_URL` resolved by `scripts/ensure-*.mjs`. Prod quirk: ALB targets 5173 (Vite) while Express listens 3001.
+### Claudish
 
-**Français:**
-> Cinq façons de lancer (npm, Docker, Devcontainer, prod compose, ECS). Toutes partagent la même logique de chemin de base. En prod AWS, l'ALB parle au serveur Vite (5173), pas à Express (3001).
+> Dans un monde où l'attention est la ressource la plus rare, que vous soyez fondateur solo ou dirigeant, cette édition est un game-changer. Entrons dans le vif.
 
-## 4. Compte-rendu après debug
+### Français
 
-**Français:**
-> Les listes n'étaient pas paginées côté API, même si l'UI a des filtres. J'ai ajouté `limit`/`cursor` sur la query `items.list` dans `server/routers/items.ts`.
+> Dix minutes cette semaine: ce qui a cassé chez trois équipes produit, et le correctif qu'elles ont shippé avant vendredi.
 
-**À ne pas faire:** un pavé de stack trace sans conclusion, ou « j'ai amélioré la performance des listes » sans fichier.
+---
+
+## Accroche LinkedIn
+
+### Claudish
+
+> Ce n'est pas le code qui ralentit vos releases. C'est le mindset. Relisez ça.
+
+### Français
+
+> On a mis trois jours à merger une PR de vingt lignes parce que personne ne voulait être le premier à dire « je ne comprends pas le design ».
+
+---
+
+## Mail d'annonce
+
+### Claudish
+
+> J'espère que ce message vous trouve en bonne santé. Je me permets de vous contacter afin de vous informer que nous avons seamlessement amélioré la plateforme, garantissant une expérience robuste.
+
+### Français
+
+> À partir de lundi, l'export CSV inclut la colonne « propriétaire ». Si un export planifié casse chez vous, répondez à ce mail avec le nom du rapport.
+
+---
+
+## Réponse chat (chaque fois qu'il parle)
+
+**Demande:** « Tu peux m'écrire un post sur notre bascule monorepo ? »
+
+**Sortie attendue:** directement le Français publiable (pas le Claudish, sauf si on demande l'avant/après).
+
+> On a fusionné trois repos cette semaine. Les dépendances partagées se mettent à jour en une PR; la CI met deux minutes de plus. Si vos équipes ne partagent pas de code chaque jour, gardez des repos séparés: le coût CI n'achète rien.

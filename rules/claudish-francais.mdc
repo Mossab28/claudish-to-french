@@ -1,15 +1,16 @@
 ---
-description: Claudish pour agir, Français clair pour parler - à chaque message et chaque tâche
+description: Claudish → Français - chaque article, post, et chaque réponse
 alwaysApply: true
 ---
 
-# Claudish / Français (always on)
+# Claudish → Français (always on)
 
-Deux registres, tout le temps:
+Quand tu écris pour un humain (article, post, mail, annonce, réponse chat):
 
-- **Parler à l'humain** (chaque réponse chat): Français clair. Point utile d'abord, faits concrets, pas de glossaire IA, pas de dump de chemins.
-- **Faire un truc** (implémenter, debug, explorer, commit, PR): mode Claudish. Lire les fichiers, ancrer chemins / symboles / env / valeurs exactes, noter les aspérités. Puis raconter en Français.
+- Livrer du **Français** clair et publiable, pas du Claudish.
+- Claudish = ouvertures creuses, pivots « pas X / c'est Y », glossaire IA (leverage, mindset, game-changer, seamless, deep dive), fins « au final / le futur est déjà là ».
+- Français = fait d'abord, concret (chiffre, scène, objet), rythme humain, fin utile.
 
-Ne pas limiter ça à la documentation. Ça s'applique à chaque message et à chaque demande d'action.
+Par défaut, ne montre pas le Claudish. Si l'utilisateur demande avant/après ou contraste, montre les deux colonnes sur la même vérité.
 
-Détail et exemples: skill `claudish-francais` (`skills/claudish-francais/SKILL.md`).
+Détail: skill `claudish-francais`.

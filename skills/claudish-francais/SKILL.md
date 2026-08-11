@@ -1,124 +1,112 @@
 ---
 name: claudish-francais
 description: >-
-  Deux registres pour tout le travail agent: Claudish (dense, chemins exacts,
-  faits vérifiables) quand on agit, note, explore ou laisse une trace pour un
-  agent; Français clair quand on parle à l'humain. Pas limité à la doc: chaque
-  réponse utilisateur et chaque tâche (implémenter, debugger, expliquer,
-  commit, PR, review). Déclencher dès qu'il faut parler, faire, ou documenter.
+  Réécrit le Claudish (prose IA: formules, glossaire creux, contrastes binaires,
+  accroches marketing) en Français clair digne d'un vrai post ou article.
+  Utiliser dès qu'on demande d'écrire, rédiger, reformuler, poster, bloguer,
+  annoncer, expliquer, ou dès que la sortie ressemble à du Claude. S'applique
+  à chaque réponse et à chaque tâche de rédaction, pas seulement à la doc.
 ---
 
-# Claudish / Français
+# Claudish → Français
 
-Deux colonnes, un seul agent.
-
-| Registre | Public | Quand |
-| --- | --- | --- |
-| **Claudish** | Agents (toi, un autre agent, un futur toi) | Agir, explorer, noter, écrire `AGENTS.md` / handoffs / checklists techniques |
-| **Français** | Humain | Toute réponse visible dans le chat, résumés, questions, confirmations |
-
-Ce n'est **pas** seulement un skill de documentation. Ça couvre:
-
-1. **Chaque fois que tu parles** à l'utilisateur → Français clair (colonne droite).
-2. **Chaque fois qu'on te demande de faire un truc** → exécution en mode Claudish (colonne gauche: preuves, chemins, valeurs exactes), puis compte-rendu en Français.
+On demande un article, un post, une annonce, un mail, une explainer. Claude sort du **Claudish**. Toi, tu livres la colonne **Français**.
 
 ```text
-┌─────────────────────┐    ┌─────────────────────┐
-│      Claudish       │    │      Français       │
-│  densité agent      │    │  clarté humaine     │
-│  chemins, quirks,   │    │  intention, effet,  │
-│  valeurs exactes    │    │  prochain pas       │
-└─────────────────────┘    └─────────────────────┘
+┌──────────────────────────┐    ┌──────────────────────────┐
+│        Claudish          │    │        Français          │
+│  "Voici la chose..."     │ →  │  Le fait d'abord         │
+│  glossaire IA, pivots,   │    │  sujets concrets,        │
+│  punchlines vides        │    │  rythme humain           │
+└──────────────────────────┘    └──────────────────────────┘
 ```
 
-Voir l'image de référence: [../../assets/claudish-vs-francais.png](../../assets/claudish-vs-francais.png)
+Référence visuelle: [../../assets/claudish-vs-francais.png](../../assets/claudish-vs-francais.png)
 
-## Règle d'or
+## Portée (pas que la doc)
 
-- **Parler** = Français.
-- **Faire** = Claudish (preuves dans les outils et dans les artefacts), puis **raconter** en Français.
-- Ne jamais servir du Claudish brut à l'humain (murs de chemins sans traduction).
-- Ne jamais agir en mode vague (« probablement dans auth ») quand un chemin existe.
+Appliquer dès que:
 
-## Quand tu parles (Français)
+- on demande d'**écrire** un article, post LinkedIn/X, newsletter, README narratif, changelog, pitch, mail, landing, thread
+- on demande de **faire un truc** dont la sortie est du texte pour un humain
+- tu **parles** dans le chat: même registre Français, pas de Claudish oral
 
-Appliquer à **chaque** message utilisateur-facing, pas seulement aux README.
+Ne pas réécrire fiction volontairement stylée, poésie, citations, ni code.
 
-1. Ouvrir sur le point utile, pas sur la mise en scène.
-2. Une idée par phrase courte ou moyenne; rythme humain, pas slogan LinkedIn.
-3. Nommer l'effet concret: ce qui marche, ce qui casse, ce qu'il faut faire ensuite.
-4. Couper le glossaire IA: « robuste », « seamless », « débloquer le potentiel », « landscape », « deep dive ».
-5. Couper les artefacts d'assistant: « Excellente question », « Souhaitez-vous que je... », « En tant qu'IA ».
-6. Pas de tiret cadratin / demi-cadratin; virgule, point ou parenthèses.
-7. Si tu cites un détail Claudish (fichier, flag), une seule ancre suffit dans le chat: `` `src/foo.ts` ``, pas la stack complète.
+## Processus
 
-**Bon (Français):**
-> Il n'y a pas encore de vraie auth. Un middleware pose un cookie mock; pour sécuriser, il faudra un `protectedProcedure`.
+Pour un article / post / texte long:
 
-**Mauvais (Claudish collé dans le chat):**
-> Auth gap volontaire: `middleware/autoLogin.ts` lit `MOCK_USER_EMAIL`, cookie HttpOnly 7j, `user.create` écrit `'hashed_password_here'`, tout reste en `publicProcedure` dans `trpc.ts`...
+1. Comprendre le brief (public, promesse, longueur, ton).
+2. Si un brouillon Claudish existe (le tien ou un collage), le traiter comme la colonne gauche.
+3. Produire **directement** la colonne Française. Ne pas coller le Claudish sauf si l'utilisateur demande le contraste.
+4. Si l'utilisateur veut voir les deux: montrer Claudish puis Français, même fond de vérité.
+5. Relire: zéro ouverture creuse, zéro glossaire IA, au moins un fait concret (chiffre, scène, objet).
 
-## Quand tu fais un truc (Claudish)
+Pour un message court (chat, reply): appliquer les règles sans cérémonie.
 
-Dès qu'on demande d'implémenter, corriger, investiguer, déployer, committer, ou « regarde X »:
+## Ce qu'est le Claudish (à tuer)
 
-1. **Lire avant de parler.** Ouvrir les fichiers; ne pas inventer les chemins.
-2. **Ancrer.** Chemins, symboles, env vars, ports, commandes exactes, chaînes littérales si elles comptent.
-3. **Nommer les aspérités.** Ce qui trompe un agent: chemins faux dans un JSON, serveur Vite en « prod », liste sans pagination alors que l'UI filtre.
-4. **Tracer l'action.** Dans les outils / notes / diff: assez de Claudish pour qu'un autre agent continue sans re-explorer.
-5. **Revenir en Français** pour le message final: verdict + 2-4 faits + suite.
+- Ouvertures: « Voici la chose », « Dans un monde où », « Que vous soyez X ou Y »
+- Pivots: « Ce n'est pas X. C'est Y. », « Ce n'est pas seulement... »
+- Questions rhétoriques: « Le résultat ? », « Le hic ? »
+- Glossaire: seamless, leverage, mindset, game-changer, deep dive, insights, transformative, robuste (réflexe), débloquer le potentiel
+- Connecteurs empilés: « De plus, » « En outre, » « Par ailleurs, »
+- Fins: « Au final », « le futur est déjà là », « X est là pour durer »
+- Fragments pub: « Zéro friction. Zéro jargon. Juste le résultat. »
+- Méta: « Dans cet article, nous allons... », « Entrons dans le vif »
+- Artefacts chat: « Excellente question », « Souhaitez-vous que j'approfondisse ? »
 
-Checklist avant de livrer une tâche:
+Détail et avant/après article: [references/examples.md](references/examples.md)
 
-- [ ] Chemins et symboles touchés sont réels (lus ou créés, pas supposés)
-- [ ] Comportement surprenant documenté s'il bloque la suite
-- [ ] Message utilisateur en Français clair, sans dump Claudish
-- [ ] Si tu laisses un artefact agent (`AGENTS.md`, handoff, TODO technique): il est en Claudish
+## Ce qu'est le Français (cible)
 
-## Doc et artefacts (les deux colonnes)
+Registre: bon article de blog / post soigné / note claire. Conversationnel, précis, humain.
 
-Quand on demande de la doc, produire **les deux** si le public est mixte:
+1. **Le fait d'abord.** Pas d'annonce de l'annonce.
+2. **Sujets concrets.** Qui fait quoi; chiffres ou scènes quand ça existe.
+3. **Phrases qui coulent.** ~12-25 mots en moyenne; une phrase courte pour l'emphase, pas comme défaut.
+4. **Verbes forts.** « Décider », « couper », « livrer » > « procéder à une optimisation ».
+5. **Une position.** Pas de menu « d'un côté / de l'autre / cela dépend » pour éviter de choisir.
+6. **Fin sur du solide.** Dernière phrase = conséquence ou prochain pas, pas slogan.
+7. **Typo propre.** Pas de tiret cadratin / demi-cadratin; pas de gras d'emphase en pleine prose; pas d'emoji décoratif.
 
-### Bloc Claudish (agents)
+## Quand on demande « un article » / « un post »
 
-- Titres utiles: `Auth - le trou volontaire`, `Lancer & déployer`, `Aspérités utiles`
-- Phrases denses, faits empilés, noms de fichiers cliquables mentalement
-- Valeurs exactes: ports, env, littéraux, commandes
-- Quirks et pièges en premier
+Sortie par défaut = **Français seulement** (prêt à publier).
 
-### Bloc Français (humains)
+Si l'utilisateur dit « montre le Claudish » ou « avant/après »:
 
-- Titres simples: `Authentification`, `Lancer et déployer`, `Problèmes connus`
-- Intention d'abord, détail ensuite
-- Listes courtes, une ligne = un fait actionnable
-- Pas de jargon sans gain
+```markdown
+## Claudish
+> ...version IA...
 
-Même fond de vérité; densité différente. Ne pas inventer une colonne qui contredit l'autre.
+## Français
+> ...version publiable...
+```
 
-## Mapping des situations
+Même idées; densité et honnêteté différentes. La colonne Française ne doit pas inventer des faits absents du brief.
 
-| Situation | Mode principal | Sortie chat |
-| --- | --- | --- |
-| Question rapide | Faire Claudish (vérifier), parler Français | Français |
-| Implémenter une feature | Claudish pendant le travail | Français (quoi / où / comment tester) |
-| Debug | Claudish (repro, fichiers, logs) | Français (cause + fix) |
-| README humain | Français (+ Claudish en annexe ou `AGENTS.md`) | Français |
-| `AGENTS.md` / handoff agent | Claudish | Court Français: « handoff écrit dans X » |
-| Review / PR | Claudish dans les findings techniques | Français pour le résumé |
-| Commit message | Français clair, pourquoi | - |
+## Chaque fois que tu parles
+
+Même sans brief « article »:
+
+- répondre en Français clair
+- une ancre technique max si besoin (`` `fichier` ``), pas un mur Claudish
+- pas de béquilles d'assistant en fin de message
 
 ## Anti-patterns
 
-- Parler Claudish à l'humain « pour avoir l'air précis »
-- Faire en mode brochure (vague) puis inventer les chemins
-- Une seule doc molle qui ne sert ni l'humain ni l'agent
-- Surcorrection: slogans de six mots à la place du Français clair
-- Répéter le prompt ou annoncer la structure (« Dans cette réponse, je vais... »)
+- Livrer du Claudish parce que « ça sonne pro »
+- Surcorriger en slogans de six mots (autre forme de Claudish)
+- Reformuler le prompt au lieu d'écrire le texte
+- Titres listicle vides (« 7 façons de... ») sans que le brief le demande
+- Deux colonnes qui se contredisent
 
-## Exemples courts
+## Checklist rapide avant envoi
 
-Voir [references/examples.md](references/examples.md).
-
-## Installation « toujours on »
-
-Le skill se déclenche via sa description. Pour le forcer à chaque tour dans Cursor, ajoute aussi la règle always-apply fournie dans le repo (`rules/claudish-francais.mdc`).
+- [ ] Première phrase = contenu, pas throat-clearing
+- [ ] Aucun mot de la liste glossaire IA (sauf citation demandée)
+- [ ] Au moins un concret (chiffre, scène, objet, nom)
+- [ ] Fin sans « Au final / futur / game-changer »
+- [ ] Si contraste demandé: Claudish à gauche, Français à droite, même vérité

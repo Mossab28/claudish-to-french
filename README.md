@@ -1,19 +1,19 @@
 # Claudish / Français
 
-Skill Cursor / Claude Code: **deux registres** pour tout le travail de l'agent, pas seulement la doc.
+On demande à Claude un **article**, un **post**, une annonce. Il sort du Claudish. Ce skill force la colonne **Français**: texte publiable, concret, sans glossaire IA.
 
 ![Claudish vs Français](assets/claudish-vs-francais.png)
 
 | Claudish | Français |
 | --- | --- |
-| Densité agent: chemins, env, quirks, littéraux | Clarté humaine: intention, effet, prochain pas |
-| Quand on **agit** ou on laisse une trace pour un agent | Quand on **parle** à l'humain |
+| « Voici la chose... », pivots, leverage, game-changer | Le fait d'abord, sujets concrets, rythme humain |
+| Version IA du post | Version qu'on publie |
 
-## Ce que ça change
+## Portée
 
-- **Chaque fois que l'agent parle** → Français clair
-- **Chaque fois qu'on lui demande de faire un truc** → exécution Claudish (preuves), compte-rendu Français
-- Doc mixte → les deux colonnes sur la même vérité
+- Articles, posts, newsletters, mails, pitchs, changelogs narratifs
+- **Chaque fois** que l'agent parle ou qu'on lui demande d'écrire quelque chose
+- Optionnel: montrer les deux colonnes (avant/après) si on le demande
 
 ## Contenu
 
@@ -22,15 +22,13 @@ skill-claudish-fr/
 ├── LICENSE
 ├── README.md
 ├── assets/claudish-vs-francais.png
-├── rules/claudish-francais.mdc    # alwaysApply pour Cursor
+├── rules/claudish-francais.mdc
 └── skills/claudish-francais/
     ├── SKILL.md
     └── references/examples.md
 ```
 
-## Installation
-
-### Cursor (recommandé: skill + règle always-on)
+## Installation (Cursor)
 
 ```bash
 git clone https://github.com/Mossab28/skill-claudish-fr.git
@@ -38,19 +36,15 @@ cp -R skill-claudish-fr/skills/claudish-francais ~/.cursor/skills/
 cp skill-claudish-fr/rules/claudish-francais.mdc ~/.cursor/rules/
 ```
 
-La règle `alwaysApply: true` force le comportement à chaque tour. Le skill donne le détail et les exemples.
+La règle `alwaysApply: true` applique le registre à chaque tour.
 
-### Claude Code
+## Exemple minute
 
-```bash
-cp -R skills/claudish-francais ~/.claude/skills/
-```
+**Brief:** post sur la baisse des réunions + un outil de rapports.
 
-Pour un effet « toujours on » côté Claude Code, ajoute aussi un rappel court dans ton `CLAUDE.md` / `AGENTS.md` personnel qui pointe vers ce skill.
+**Claudish:** « Voici la chose: dans le paysage fast-paced... game-changer... le futur est déjà là. »
 
-## Inspiration
-
-Le format visuel Claudish vs English (doc agent dense vs doc humaine) vu dans les posts type Reddit / comparaisons de `AGENTS.md`. Ici: étendu au **parler** et au **faire**, avec la colonne humaine en français.
+**Français:** « On est passé de cinq réunions à deux. L'outil rédige le premier jet du rapport (~3 h/semaine). Gardez la réunion pour décider. »
 
 ## Licence
 
