@@ -1,63 +1,57 @@
-# Skill French prose
+# Claudish / Français
 
-`writing-french-prose` est une skill Cursor / Claude Code qui retire les tics d'écriture IA du français (le « slop ») : glossaire creux, anglicismes vides, structures formulées, sujets abstraits, rythme monotone.
+Skill Cursor / Claude Code: **deux registres** pour tout le travail de l'agent, pas seulement la doc.
 
-Elle vise un français fluide et concret : sujets réels, verbes forts, rythme varié. Les règles vivent dans [SKILL.md](skills/writing-french-prose/SKILL.md) ; les catalogues sont dans `skills/writing-french-prose/references/`.
+![Claudish vs Français](assets/claudish-vs-francais.png)
 
-## Inspiration
+| Claudish | Français |
+| --- | --- |
+| Densité agent: chemins, env, quirks, littéraux | Clarté humaine: intention, effet, prochain pas |
+| Quand on **agit** ou on laisse une trace pour un agent | Quand on **parle** à l'humain |
 
-Inspirée et adaptée de :
+## Ce que ça change
 
-- [qiaeru/skill-english-prose](https://github.com/qiaeru/skill-english-prose)
-- [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop)
+- **Chaque fois que l'agent parle** → Français clair
+- **Chaque fois qu'on lui demande de faire un truc** → exécution Claudish (preuves), compte-rendu Français
+- Doc mixte → les deux colonnes sur la même vérité
 
-Même idée (anti-slop), transposée aux tics et au registre du français.
-
-## Structure
+## Contenu
 
 ```text
-skill-french-prose/
+skill-claudish-fr/
 ├── LICENSE
 ├── README.md
-└── skills/
-    └── writing-french-prose/
-        ├── SKILL.md
-        └── references/
-            ├── phrases.md
-            ├── structures.md
-            └── examples.md
+├── assets/claudish-vs-francais.png
+├── rules/claudish-francais.mdc    # alwaysApply pour Cursor
+└── skills/claudish-francais/
+    ├── SKILL.md
+    └── references/examples.md
 ```
 
 ## Installation
 
-### Cursor
-
-Copiez le dossier [skills/writing-french-prose/](skills/writing-french-prose/) vers `~/.cursor/skills/writing-french-prose/` :
+### Cursor (recommandé: skill + règle always-on)
 
 ```bash
-cp -R skills/writing-french-prose ~/.cursor/skills/
+git clone https://github.com/Mossab28/skill-claudish-fr.git
+cp -R skill-claudish-fr/skills/claudish-francais ~/.cursor/skills/
+cp skill-claudish-fr/rules/claudish-francais.mdc ~/.cursor/rules/
 ```
 
-Redémarrez Cursor (ou rechargez les skills) pour la détecter.
+La règle `alwaysApply: true` force le comportement à chaque tour. Le skill donne le détail et les exemples.
 
 ### Claude Code
 
-Copiez le même dossier vers les skills globaux ou ceux d'un projet :
-
 ```bash
-# global
-cp -R skills/writing-french-prose ~/.claude/skills/
-
-# ou dans un projet
-cp -R skills/writing-french-prose /chemin/du/projet/.claude/skills/
+cp -R skills/claudish-francais ~/.claude/skills/
 ```
 
-Redémarrez Claude Code. Pour une mise à jour, re-copiez le dossier (le contenu n'est pas hot-reloadé).
+Pour un effet « toujours on » côté Claude Code, ajoute aussi un rappel court dans ton `CLAUDE.md` / `AGENTS.md` personnel qui pointe vers ce skill.
 
-## Usage
+## Inspiration
 
-La skill se déclenche quand vous demandez de rédiger, corriger ou relire du texte en français. Vous pouvez aussi l'invoquer explicitement par son nom (`writing-french-prose`).
+Le format visuel Claudish vs English (doc agent dense vs doc humaine) vu dans les posts type Reddit / comparaisons de `AGENTS.md`. Ici: étendu au **parler** et au **faire**, avec la colonne humaine en français.
 
 ## Licence
 
-MIT, voir [LICENSE](LICENSE).
+MIT

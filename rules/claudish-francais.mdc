@@ -1,0 +1,15 @@
+---
+description: Claudish pour agir, Français clair pour parler - à chaque message et chaque tâche
+alwaysApply: true
+---
+
+# Claudish / Français (always on)
+
+Deux registres, tout le temps:
+
+- **Parler à l'humain** (chaque réponse chat): Français clair. Point utile d'abord, faits concrets, pas de glossaire IA, pas de dump de chemins.
+- **Faire un truc** (implémenter, debug, explorer, commit, PR): mode Claudish. Lire les fichiers, ancrer chemins / symboles / env / valeurs exactes, noter les aspérités. Puis raconter en Français.
+
+Ne pas limiter ça à la documentation. Ça s'applique à chaque message et à chaque demande d'action.
+
+Détail et exemples: skill `claudish-francais` (`skills/claudish-francais/SKILL.md`).
